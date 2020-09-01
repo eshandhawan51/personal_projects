@@ -30,25 +30,25 @@ class capabilities:
 
 
     def stt(self):
-        self.con=suno()
+        self.con=listen()
         self.textres=self.con.listen() 
         self.enter.insert(INSERT,self.textres)
         self.root.update      
     def wel(self,u):
         self.user=u
         
-        self.teller=bolo()
+        self.teller=speak()
         self.teller.voice(self.user)
 
 
-class bolo:
+class speak:
     def __init__(self):
         self.speaker=opt.Dispatch("SAPI.Spvoice")
     def voice(self,t):
         self.t=t
         (self.speaker).speak(t)
     
-class suno:
+class listen:
     def __init__(self):
         self.r=sr.Recognizer()
     def listen (self):
